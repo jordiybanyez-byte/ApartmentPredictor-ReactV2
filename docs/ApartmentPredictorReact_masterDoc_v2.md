@@ -85,7 +85,6 @@ $ tree
 
 5 directories, 8 files
 **Node/Component tree**: product goal
-
 ```
 
 ![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/TREE-ApartmentPredictor_v2-2.png)
@@ -383,11 +382,12 @@ Here is a clean **summary of the 4 steps** to use **React Context** with an **AP
    - Typically combined with `useState` + `useEffect` for data fetching.  
      → No prop drilling, clean access anywhere below the provider.
 
+
+![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/UML-ApartmentPredictor_v2-Middleware.png)
+
 > **Quick mental checklist**: 
 > 
 > Service → Context + Hook + Provider → Wrap app → Use hook in components.
-
-
 
 ### Apartment Middleware Data provider
 
