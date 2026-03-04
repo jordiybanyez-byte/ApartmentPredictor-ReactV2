@@ -201,17 +201,13 @@ $ npm install axios
 We typically use `Context` when:
 
 - We have data that <mark>must be shared by many components</mark> (auth user, theme, current organization, router-like data).
-
 - We want that data to be “**the same**” for all components under a provider.
-
 - We want **React** to handle subscription and re‑rendering when that shared value changes.
 
 With `Axios` data, that usually means:
 
 1. A `provider` does the fetching once (with `useState`/`useEffect`).
-
 2. The value (data, loading, error, refetch) is stored in `Context`.
-
 3. Any child uses `useContext` to read that value and they all see the same cache.
 
 Very simplified:
@@ -243,8 +239,7 @@ function Profile() {
 
 A `custom hook` is just a function that uses hooks to encapsulate reusable logic:
 
-- It’s great for hiding Axios + error handling + retries.
-
+- It’s great for hiding `Axios` + error handling + retries.
 - But every call to the hook creates its **own state** (like calling `useState` twice in two components).
 
 For example:
@@ -271,10 +266,10 @@ function Sidebar() {
 
 Here, `Profile` and `Sidebar` will fetch independently; they do **not** share the same user state. If you want them to share, you must introduce a shared store: 
 
-- Context, 
-
-- a global store (Redux, Zustand, etc.), 
-
+- `Context`, 
+- a global store (Redux, Zustand, etc.):
+  - [Redux](https://redux.js.org/)
+  - [zustand](https://zustand.docs.pmnd.rs/learn/getting-started/introduction)
 - or some in‑memory cache you manage.
 
 ### How they work together in practice
@@ -282,7 +277,6 @@ Here, `Profile` and `Sidebar` will fetch independently; they do **not** share th
 The common pattern is:
 
 - Use **Context** to hold the shared data/store.
-
 - Use a **custom hook** as a nice API over that context.
 
 Example:
@@ -318,10 +312,8 @@ Now `useUser` is a custom hook, but it reads from `Context`, so every component 
 #### Rules of thumb for axios case
 
 - If we just need reusable **fetch logic** and each component can have its own request/lifecycle → <mark>custom hook only.</mark>
-
-- If you need **one shared cache/state** (e.g., fetched once, read many places, stays in sync) → <mark>Context for storage</mark> + custom hook as the access helper.
-
-- Avoid using a `custom hook` with internal `useState` for “shared” data unless you back it with `Context` or some other global store; otherwise you’ll get multiple independent fetches and inconsistent views.
+- If we need **one shared cache/state** (e.g., fetched once, read many places, stays in sync) → <mark>Context for storage</mark> + custom hook as the access helper.
+- We will avoid using a `custom hook` with internal `useState` for “shared” data unless we back it with `Context` or some other global store; otherwise we’ll get multiple independent fetches and inconsistent views.
 
 ### Middleware: Axios-Service/Context-customs hooks
 
@@ -329,7 +321,7 @@ Now `useUser` is a custom hook, but it reads from `Context`, so every component 
 
 > **The Context + Axios Service Middleware pattern** is a clean, scalable way to manage API calls in React applications.
 
-![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/UML-ApartmentPredictor_v2-Middleware.png)
+![](https://raw.githubusercontent.com/AlbertProfe/userBorrowBookFront/refs/heads/master/docs/axios-async/axios_context%20api%20-%20visual%20selection%20(copy).png)
 
 We create a <mark>single service object</mark> containing all `Axios-based` methods (`get`, `post`, `put`, `delete`, etc.), often with shared configuration such as baseURL, headers, interceptors for authentication (JWT), global error handling, request logging, or retry logic.
 
@@ -337,17 +329,17 @@ This service object is then provided via **React Context** at the top of the com
 
 **Key benefits**:
 
-- Single place for auth tokens, interceptors, and error/toast handling
-- Consistent API behavior across the entire app
+- Single place for` auth tokens`, interceptors, and error/toast handling
+- Consistent `API` behavior across the entire app
 - Easy testing (mock the service via Provider)
 - Simple to evolve later (swap Axios → fetch, TanStack Query, etc.)
 - Avoids duplication and keeps components focused on UI logic
 
 > Ideal for medium to large React apps needing reliable, maintainable HTTP communication.
 
-![](https://raw.githubusercontent.com/AlbertProfe/userBorrowBookFront/refs/heads/master/docs/axios-async/axios_context%20api%20-%20visual%20selection%20(copy).png)
-
 Here is a clean **summary of the 4 steps** to use **React Context** with an **API service** (axios-based) to buid a middleware:
+
+![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/UML-ApartmentPredictor_v2-Middleware.png)
 
 1. **Create the API service object**  
    
