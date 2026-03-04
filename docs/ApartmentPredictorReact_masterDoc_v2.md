@@ -84,10 +84,15 @@ $ tree
     └── ApartmentListView.jsx
 
 5 directories, 8 files
-**Node/Component tree**: product goal
 ```
 
+**Node/Component tree**: product goal
+
 ![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/TREE-ApartmentPredictor_v2-2.png)
+
+Project structure: <mark>folder tree with new domains</mark>
+
+![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/screenshots/PROJECT_apartmentPredictorReact-v2.png)
 
 ## Data model
 
@@ -352,17 +357,18 @@ Here is a clean **summary of the 4 steps** to use **React Context** with an **AP
    - Use `React.createContext()` and pass our service object (API service objec) as the **default value**.  
    - Create a **custom hook** (`useBookService` / `useApiService`) that calls `useContext()`.  
    - Create a **Provider component** (`BookServiceProvider`) that wraps children and provides the service object via `<Context.Provider value={BookService}>`.  
-     → All three (`Context`, `hook`, `provider`) usually live in the same file as the `service`, and it is a [good practice](https://github.com/facebook/react/issues/17912)
-     Example:
+     → All three (`Context`, `hook`, `provider`) usually live in the same file as the `service`, and it is a [good practice](https://github.com/facebook/react/issues/17912). 
+   
+   Example:
    
    ```jsx
     // BookServiceProvider component
     export const BookServiceProvider = ({ children }) => {
-          return (
-            <BookServiceContext.Provider value={BookService}>
-                  {children}
-            </BookServiceContext.Provider>
-          );
+       return (
+         <BookServiceContext.Provider value={BookService}>
+          {children}
+         </BookServiceContext.Provider>
+         );
     };
    ```
 
