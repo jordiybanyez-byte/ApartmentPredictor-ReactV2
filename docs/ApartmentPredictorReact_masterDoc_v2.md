@@ -457,6 +457,29 @@ The <mark>migration</mark> involved:
 ## CRUD Apartment
 
 - [GitHub - AlbertProfe/ApartmentPredictor-React at v2-crud · GitHub](https://github.com/AlbertProfe/ApartmentPredictor-React/tree/v2-crud)
+- https://www.react-hook-form.com/api/useform/
+
+> To enhance the apartment management system, integrating **React Hook Form** provides superior form handling with reduced re-renders and built-in validation. 
+> 
+> Replace the current `useState`-based form in [ApartmentForm.jsx](cci:7://file:///home/albert/MyProjects/Sandbox/ApartmentPredictorProject-React/ApartmentPredictor-React/src/apartment/ApartmentForm.jsx:0:0-0:0) with React Hook Form's `useForm` hook.
+
+The <mark>form</mark> component leverages `useForm` for state management, replacing manual `formData` state with `register`, [handleSubmit](cci:1://file:///home/albert/MyProjects/Sandbox/ApartmentPredictorProject-React/ApartmentPredictor-React/src/apartment/ApartmentForm.jsx:31:2-50:4), and `reset` functions. For **CREATE** operations, the form initializes with default values, while **UPDATE** operations populate fields using `reset(apartment)` when an existing apartment is passed.
+
+Installation: installing <mark>React Hook Form</mark> only takes a single command and you're ready to roll.
+
+```tex
+npm install react-hook-formCopy
+```
+
+<mark>React Hook Form</mark> eliminates unnecessary re-renders by using **uncontrolled** inputs via `register`. Validation becomes declarative with schema-based validation using `yup` or `zod`. Error handling is streamlined with automatic error message display tied to field validation rules.
+
+### CRUD Integration
+
+The `form` maintains **dual-purpose functionality**: 
+
+- when `apartment` prop exists, it operates in **UPDATE** mode with pre-populated fields and *PUT* request submission. 
+
+- Without the prop, it functions as **CREATE** form with empty defaults and **POST** request. The `onSuccess` callback triggers parent component refresh, maintaining the existing data flow architecture.
 
 ## package.json
 
