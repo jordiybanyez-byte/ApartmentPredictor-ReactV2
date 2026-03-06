@@ -1,17 +1,11 @@
 import axios from "axios";
 
-const API_BASE_URL = ""; // Your API base URL, currently using relative paths
+const API_BASE_URL = "/api/v1/apartment";
 
 const ApartmentApiService = {
   getAllApartments: async () => {
     try {
-      const response = await axios.get("/api/v1/apartment/getAll");
-      console.log("API Response:", response);
-      console.log("Apartments Data:", response.data);
-      console.log("First Apartment:", response.data[0]);
-      console.log("Headers", response.headers);
-      console.log("Headers date", response.headers.date);
-      console.log("Status", response.status);
+      const response = await axios.get(`${API_BASE_URL}/getAll`);
       return response.data;
     } catch (error) {
       console.error("Error fetching apartments:", error);
@@ -19,10 +13,45 @@ const ApartmentApiService = {
     }
   },
 
-  // Add other apartment-related API methods here as needed
-  // createApartment: async (apartment) => { ... },
-  // updateApartment: async (apartment) => { ... },
-  // deleteApartment: async (apartmentId) => { ... },
+  getApartmentById: async (apartmentId) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/${apartmentId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching apartment ${apartmentId}:`, error);
+      throw error;
+    }
+  },
+
+  createApartment: async (apartment) => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/create`, apartment);
+      return response.data;
+    } catch (error) {
+      console.error("Error creating apartment:", error);
+      throw error;
+    }
+  },
+
+  updateApartment: async (apartment) => {
+    try {
+      const response = await axios.put(`${API_BASE_URL}/${apartment.id}`, apartment);
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating apartment ${apartment.id}:`, error);
+      throw error;
+    }
+  },
+
+  deleteApartment: async (apartmentId) => {
+    try {
+      const response = await axios.delete(`${API_BASE_URL}/${apartmentId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting apartment ${apartmentId}:`, error);
+      throw error;
+    }
+  },
 };
 
 export default ApartmentApiService;
