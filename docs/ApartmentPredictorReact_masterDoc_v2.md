@@ -493,6 +493,18 @@ Apartment (Entry-point Parent)
         └── ApartmentItem (Child Rendering Item List)
 ```
 
+## AWS S3
+
+First at all create a resource at `AWS`: [AWS-S3-CreateBucket](https://github.com/AlbertProfe/ApartmentPredictor-React/blob/master/docs/appends/AWS-S3-CreateBucket.md)
+
+Updated [Init.jsx](cci:7://file:///home/albert/MyProjects/Sandbox/ApartmentPredictorProject-React/ApartmentPredictor-React/src/Init.jsx:0:0-0:0) to use `AWS S3` image with local fallback:
+
+- **Primary source**: AWS S3 URL (`https://albertprofedocs.s3.eu-central-1.amazonaws.com/apartment_predictor_images/apartmentNewYork.jpg`)
+- **Fallback**: Local image (`./assets/apartmentNewYork.jpg`) via [handleImageError](cci:1://file:///home/albert/MyProjects/Sandbox/ApartmentPredictorProject-React/ApartmentPredictor-React/src/Init.jsx:8:4-10:6) function
+- **Error handling**: `onError` prop automatically switches to local image if AWS image fails to load
+
+The component will now attempt to load the image from AWS first, and gracefully fall back to the local image if there are any network issues or the AWS image is unavailable.
+
 ## package.json
 
 ### Dependencies Overview
