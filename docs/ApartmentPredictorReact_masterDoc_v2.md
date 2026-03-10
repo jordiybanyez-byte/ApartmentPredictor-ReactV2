@@ -493,6 +493,8 @@ Apartment (Entry-point Parent)
         └── ApartmentItem (Child Rendering Item List)
 ```
 
+![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/TREE-apartmentPage-v2.png)
+
 ## AWS S3
 
 First at all create a resource at `AWS`: [AWS-S3-CreateBucket](https://github.com/AlbertProfe/ApartmentPredictor-React/blob/master/docs/appends/AWS-S3-CreateBucket.md)
