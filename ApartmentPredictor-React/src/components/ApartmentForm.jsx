@@ -9,13 +9,13 @@ const ApartmentForm = ({ apartment = null, onSuccess, onCancel }) => {
     bedrooms: apartment?.bedrooms || "",
     bathrooms: apartment?.bathrooms || "",
     stories: apartment?.stories || "",
-    mainroad: apartment?.mainroad || false,
-    parking: apartment?.parking || false,
-    guestroom: apartment?.guestroom || false,
-    basement: apartment?.basement || false,
-    hotwaterheating: apartment?.hotwaterheating || false,
-    airconditioning: apartment?.airconditioning || false,
-    prefarea: apartment?.prefarea || false,
+    mainroad: apartment?.mainroad === "yes" || false,
+    parking: apartment?.parking === 1 || false,
+    guestroom: apartment?.guestroom === "yes" || false,
+    basement: apartment?.basement === "yes" || false,
+    hotwaterheating: apartment?.hotwaterheating === "yes" || false,
+    airconditioning: apartment?.airconditioning === "yes" || false,
+    prefarea: apartment?.prefarea === "yes" || false,
     furnishingstatus: apartment?.furnishingstatus || "unfurnished"
   });
 
@@ -36,12 +36,26 @@ const ApartmentForm = ({ apartment = null, onSuccess, onCancel }) => {
     setError("");
 
     try {
+      // Transform form data to match backend expectations
+      const transformedData = {
+        ...formData,
+        // Convert parking from boolean to integer (0 or 1)
+        parking: formData.parking ? 1 : 0,
+        // Convert other boolean fields to "yes"/"no" strings
+        mainroad: formData.mainroad ? "yes" : "no",
+        guestroom: formData.guestroom ? "yes" : "no",
+        basement: formData.basement ? "yes" : "no",
+        hotwaterheating: formData.hotwaterheating ? "yes" : "no",
+        airconditioning: formData.airconditioning ? "yes" : "no",
+        prefarea: formData.prefarea ? "yes" : "no"
+      };
+
       if (apartment) {
         // Update existing apartment
-        await apartmentService.updateApartment({ ...formData, id: apartment.id });
+        await apartmentService.updateApartment({ ...transformedData, id: apartment.id });
       } else {
         // Create new apartment
-        await apartmentService.createApartment(formData);
+        await apartmentService.createApartment(transformedData);
       }
       onSuccess();
     } catch (err) {
