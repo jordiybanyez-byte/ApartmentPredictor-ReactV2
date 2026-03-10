@@ -41,7 +41,7 @@ const ApartmentApiService = {
 
   updateApartment: async (apartment) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}/${apartment.id}`, apartment);
+      const response = await axios.post(`${API_BASE_URL}/update`, apartment);
       return response.data;
     } catch (error) {
       console.error(`Error updating apartment ${apartment.id}:`, error);
