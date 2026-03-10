@@ -23,7 +23,7 @@ export default function Init() {
         />
         <h1 style={{
             position: 'absolute', 
-            top: '20px', 
+            top: '300px',
             left: '50%', 
             transform: 'translateX(-50%)',
             color: 'white',
@@ -31,7 +31,7 @@ export default function Init() {
             fontSize: '4.5rem',
             fontWeight: 'bold'
         }}>
-            Welcome to the Apartment Predictor
+            Apartment Predictor
         </h1>
       </div>
       <p>Use the navigation to explore available apartments.</p>

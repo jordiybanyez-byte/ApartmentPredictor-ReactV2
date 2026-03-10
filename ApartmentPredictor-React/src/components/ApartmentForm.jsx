@@ -157,7 +157,7 @@ const ApartmentForm = ({
         <button type="button" onClick={onCancel} className="cancel-btn">
           Cancel
         </button>
-        <button type="submit" disabled={isLoading} className="submit-btn">
+        <button type="submit" disabled={isLoading} className="submit-btn" style={{ marginLeft: '10px' }}>
           {isLoading ? "Saving..." : submitText}
         </button>
       </div>
