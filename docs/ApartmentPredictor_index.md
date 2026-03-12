@@ -1,6 +1,6 @@
 # ApartmentPredictor-React: project management
 
-## Summary
+## Summary Product Goal
 
 > The **ApartmentPredictor** application evolves through **sprints (seven incremental versions)**, building <mark>from a minimal proof-of-concept into a full-featured real-estate platform</mark> with modern UX, security, monetization, AI, and geospatial capabilities.
 
@@ -9,6 +9,8 @@
 **Version 2** expands the backend into a rich domain model with full **CRUD** for apartments and relations (Schools, Property Contracts, Reviews, Owners, Reviewers), while frontend gains detailed forms and relational views.
 
 **Version 3** brings professional polish: **Material-UI** components, persistent **Drawer** navigation, and **React Context** for shared global state (apartments list, user profile, light/dark theme).
+
+### To evaluate order
 
 **Version 4** achieves production readiness with **AWS Cognito** authentication, JWT tokens, protected routes, and login/register pages.
 
@@ -24,22 +26,26 @@ This progression mirrors mature real-estate platforms — starting with listings
 
 ![](https://raw.githubusercontent.com/AlbertProfe/ApartmentPredictor-React/refs/heads/master/docs/diagrams/TREE-ApartmentPredictor_v2.png)
 
-## Vesions
+## Vesions Updated
 
 Quick Evolution Summary
 
 - **v1** → Proof of concept: just apartments list (coupled → decoupled fetch)
   - [ApartmentPredictor-React/docs/ApartmentPredictorReact_masterDoc_v1](https://github.com/AlbertProfe/ApartmentPredictor-React/blob/master/docs/ApartmentPredictorReact_masterDoc_v1.md)
-- **v2** → Backend becomes rich domain model with relations
+- **v2** → Backend becomes rich domain model with relations and CRUD Apartment
   - [ApartmentPredictor-React/docs/ApartmentPredictorReact_masterDoc_v2](https://github.com/AlbertProfe/ApartmentPredictor-React/blob/master/docs/ApartmentPredictorReact_masterDoc_v2.md)
 - **v3** → UI/UX jump: professional look + shared global state
   - [ApartmentPredictor-React/docs/ApartmentPredictorReact_masterDoc_v3](https://github.com/AlbertProfe/ApartmentPredictor-React/blob/master/docs/ApartmentPredictorReact_masterDoc_v3.md)
-- **v4** → Production readiness: real user management & protection
-- **v5** → Business model: payments / monetization
-- **v6** → Intelligence layer: AI prediction (Java-based ML)
-- **v7** → Spatial & contractual visualization: maps + detailed property/contract views
+- **v4** → Reviews Create/Update and stars at Apartment Card dynamic route
+- **v5** → Contractual visualization: detailed property/contract views
+- **v6** → Spatial visualization: maps views
+- **v7** → Intelligence layer: AI prediction (Java-based ML)
+- **v8** → Auth Production readiness: real user management & protection
+- **v9** → Business model: payments / monetization
 
-Here is the original 7-version evolution table **split into two** focused parts for clearer reading and comparison — especially useful when zooming in on frontend/backend progression separately from cross-cutting concerns (state, security, monetization, AI, UI polish, and specialized pages).
+## Versions detail
+
+Here is the original 8-version evolution table **split into two** focused parts for clearer reading and comparison — especially useful when zooming in on frontend/backend progression separately from cross-cutting concerns (state, security, monetization, AI, UI polish, and specialized pages).
 
 ### Table 1 – Core Implementation Progression
 

@@ -87,7 +87,6 @@ $ tree
 ├── navigation
 └── pages
     └── ApartmentPage.jsx
-
 ```
 
 **Node/Component tree**: product goal
