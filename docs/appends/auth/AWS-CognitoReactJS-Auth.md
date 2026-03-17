@@ -145,7 +145,7 @@ npm install oidc-client-ts react-oidc-context --save
 npm install @aws-sdk/client-cognito-identity-provider
 ```
 
-### 4. Code example (jsut a draft)
+### 4. Code example (just a draft)
 
 **Create AuthContext.jsx** (recommended structure)
 
