@@ -33,8 +33,9 @@ export default function App() {
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
-    padding: '24px',
-    marginLeft: '48px'
+    padding: '8px',
+    marginLeft: '48px',
+    width: '100%'
   };
   
   return (

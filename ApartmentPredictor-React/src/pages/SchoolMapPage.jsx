@@ -1,11 +1,11 @@
-import SchoolMapView from "../school/SchoolMapView";
-import SchoolCreate from "../school/SchoolCreate";
+import SchoolMap from "../school/SchoolMap";
 
 const SchoolMapPage = () => {
-    return <>
-        <SchoolCreate />
-        <SchoolMapView />;
-        </>
+    return (
+        <div style={{ width: '100%', height: '100%' }}>
+            <SchoolMap />
+        </div>
+    );
 };
 
 export default SchoolMapPage;
