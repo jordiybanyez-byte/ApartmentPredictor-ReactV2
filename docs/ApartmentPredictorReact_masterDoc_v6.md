@@ -4,14 +4,14 @@
 
 ### Version Goal
 
-The **SchoolMapPage** feature enables users to <mark>create new schools</mark> and visualize them on an <mark>interactive map</mark> using a **grid-based layout.**
+> The **SchoolMapPage** feature enables users to <mark>create new schools</mark> and visualize them on an <mark>interactive map</mark> using a **grid-based layout.**
 
-**Core Components:**
+Core Components:
 
-- **Page Container**: Entry point that renders the main sc
-- **Grid Layout**: Responsive two-column layout using Material-UI Grid (desktop) that stacks vertically on mobile devices
-- **School Creation Form**: Left panel with form interface for inputting new school data (currently placeholder)
-- **Interactive Map**: Right panel featuring Leaflet map with OpenStreetMap tiles, centered on Manhattan with zoom controls and marker support
+- **Page Container**: Entry point that renders the feature
+  - **Grid Layout**: Responsive two-column layout using Material-UI Grid (desktop) that stacks vertically on mobile devices
+    - **School Creation Form**: Left panel with form interface for inputting new school data (currently placeholder)
+    - **Interactive Map**: Right panel featuring Leaflet map with OpenStreetMap tiles, centered on Manhattan with zoom controls and marker support
 
 > Users can input school information through the creation form and see schools displayed as interactive markers with popups on the <mark> Leaflet map</mark>. 
 > 
@@ -34,28 +34,24 @@ The final product integrates geospatial visualization with interactive maps, con
 ### References
 
 - Server (BackEnd):
-  
   - [GitHub - AlbertProfe/ApartmentPredictor](https://github.com/AlbertProfe/ApartmentPredictor)
   - [Create JAR from backend Spring Boot](https://github.com/AlbertProfe/ApartmentPredictor-React/blob/master/docs/appends/DATA-create-JAR.md)
-
 - CodeSandbox:
-  
   - [Traffic Lights](https://codesandbox.io/p/sandbox/7f8ffd) / [Scientists Gallery 5](https://codesandbox.io/p/devbox/scientistsgallery4-forked-94z8k7)
   - Praga-CRUD: [1](https://codesandbox.io/p/devbox/react-dev-forked-cmrdn2) - [2](https://codesandbox.io/p/devbox/task-crud-forked-9dxyd5?workspaceId=ws_UM9jK6QFKQoLTL71feVrD1) - [3](https://codesandbox.io/p/devbox/task-crud-2-forked-l72dzj?workspaceId=ws_UM9jK6QFKQoLTL71feVrD1) - [4](https://codesandbox.io/p/sandbox/imagelarge-context-1-46rlf4)  / [imageSizeContext](https://codesandbox.io/p/sandbox/wjylz5)
-
 - React:
-  
   - [Describing the UI](https://react.dev/learn/describing-the-ui) / [Adding Interactivity](https://react.dev/learn/adding-interactivity) / [Managing the state](https://react.dev/learn/managing-state)
   - [Custom Hooks](https://albertprofe.dev/reactjs/reactjs-hook-custom.html) / [useEffect](https://albertprofe.dev/reactjs/reactjs-hook-effect.html) / [useState](https://albertprofe.dev/reactjs/reactjs-hook-state.html) / [useReducer](https://albertprofe.dev/reactjs/reactjs-hook-reducer.html) / [useContext](https://albertprofe.dev/reactjs/reactjs-hook-context.html)
-
 - Labs:
-  
   - [Lab#RE07-1: traffic lights simulation](https://albertprofe.dev/reactjs/rjslab7-1.html)
   - [Lab#RE01-1: API Rest Axios](https://albertprofe.dev/reactjs/rjslab1.html)
   - [Lab#RE06-1: healthyFood Restaurant](https://albertprofe.dev/reactjs/rjslab6-1.html)
   - Middleware & Navigation:
     - **mathsWeb**: [mathsWeb: repo](https://github.com/AlbertProfe/mathsWeb) /  [mathsWeb: deployed](https://mathswebspace.netlify.app/)
     - **userBorrowBook**: [GitHub - AlbertProfe/userBorrowBookFront](https://github.com/AlbertProfe/userBorrowBookFront/tree/master)
+  - Filter
+    - **userBorrowBook**: [GitHub - AlbertProfe/userBorrowBookFront · GitHub](https://github.com/AlbertProfe/userBorrowBookFront)
+    - [userBorrowBookFront/docs/userBorrowBookFront-v1.0.md](https://github.com/AlbertProfe/userBorrowBookFront/blob/master/docs/userBorrowBookFront-v1.0.md)
 
 ## Project Structure
 
@@ -265,7 +261,7 @@ export default SchoolMap;
 
 ## LeafLet map
 
-- https://leafletjs.com/ / https://react-leaflet.js.org/
+- [leafletjs](https://leafletjs.com/) / [react-leaflet](https://react-leaflet.js.org)
 
 > <mark>Leaflet</mark> is the leading **open-source JavaScript library for mobile-friendly interactive maps**. Weighing just about 42 KB of JS, it has all the mapping [features](https://leafletjs.com/#features) most developers ever need.
 
@@ -303,8 +299,15 @@ export default SchoolMap;
 - Can contain HTML content (`<br />` for line breaks)
 - Automatically positioned above the marker with a pointer
 
-**How They Work Together:**
-`MapContainer` creates the <mark>map</mark> canvas → `TileLayer` fills it with imagery → `Markers` <mark>overlay</mark> location pins → `Popups` provide interactivity *when markers are clicked.*
+**How They Work Together**
+
+→`MapContainer` creates the <mark>map</mark> canvas 
+
+→ `TileLayer` fills it with <mark>imagery</mark> 
+
+→ `Markers` <mark>overlay</mark> location pins 
+
+→ `Popups` provide <mark>interactivity</mark> *when markers are clicked.*
 
 ```jsx
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
